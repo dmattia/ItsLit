@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 import MapKit
 
 class ViewController: UIViewController {
@@ -33,17 +34,17 @@ class ViewController: UIViewController {
         self.mapView.camera = mapCamera;
         self.mapView.delegate = self;
         
-        let artwork = Artwork(title: "Golden Dome",
-            locationName: "Main Admissions Building",
-            discipline: "House",
-            coordinate: CLLocationCoordinate2D(latitude: 41.7030, longitude: -86.2390))
-        let artwork2 = Artwork(title: "Stanford Hall",
-            locationName: "Best Residence Hall on Campus",
-            discipline: "Dorm",
-            coordinate: CLLocationCoordinate2D(latitude: 41.7046474, longitude: -86.2396016))
-        
-        mapView.addAnnotation(artwork)
-        mapView.addAnnotation(artwork2)
+        var query = PFQuery(className: "Event")
+        query.findObjectsInBackgroundWithBlock { (events: [PFObject]?, error: NSError?) -> Void in
+            for event in events! {
+                let artwork = Artwork(title: event["Title"] as! String,
+                    locationName: "",
+                    discipline: event["type"] as! String,
+                    coordinate: CLLocationCoordinate2D(latitude: event["location"].latitude, longitude: event["location"].longitude))
+                
+                self.mapView.addAnnotation(artwork)
+            }
+        }
         print("View Did Load finished")
     }
     
