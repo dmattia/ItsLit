@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
     var clickedTitle: String?
     var clickedSubtitle: String?
+    var newEventLocation: CLLocationCoordinate2D?
     
     @IBAction func logoutClicked(sender: AnyObject) {
         print("Logout clicked")
@@ -33,6 +34,24 @@ class ViewController: UIViewController {
                 self.presentViewController(viewController, animated: true, completion: nil)
             }
         })
+        // Clear all annotations
+        let oldAnnotations = self.mapView.annotations
+        self.mapView.removeAnnotations(oldAnnotations)
+        
+        // Add new annotations
+        var annotations = [Artwork]()
+        let query = PFQuery(className: "Event")
+        query.findObjectsInBackgroundWithBlock { (events: [PFObject]?, error: NSError?) -> Void in
+            for event in events! {
+                let artwork = Artwork(title: event["Title"] as! String,
+                    locationName: "",
+                    discipline: event["type"] as! String,
+                    coordinate: CLLocationCoordinate2D(latitude: event["location"].latitude, longitude: event["location"].longitude))
+                
+                annotations.append(artwork)
+            }
+            self.mapView.addAnnotations(annotations)
+        }
     }
     
     override func viewDidLoad() {
@@ -52,20 +71,6 @@ class ViewController: UIViewController {
         
         self.mapView.camera = mapCamera;
         self.mapView.delegate = self;
-        
-        var annotations = [Artwork]()
-        let query = PFQuery(className: "Event")
-        query.findObjectsInBackgroundWithBlock { (events: [PFObject]?, error: NSError?) -> Void in
-            for event in events! {
-                let artwork = Artwork(title: event["Title"] as! String,
-                    locationName: "",
-                    discipline: event["type"] as! String,
-                    coordinate: CLLocationCoordinate2D(latitude: event["location"].latitude, longitude: event["location"].longitude))
-                
-                annotations.append(artwork)
-            }
-            self.mapView.addAnnotations(annotations)
-        }
         
         let lpgr = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
         lpgr.minimumPressDuration = 0.5
@@ -87,11 +92,9 @@ class ViewController: UIViewController {
             let locPressed = gestureRecognizer.locationInView(self.mapView)
             let mapCoordinate: CLLocationCoordinate2D = self.mapView.convertPoint(locPressed, toCoordinateFromView: self.mapView)
             
-            let artwork = Artwork(title: "New Event",
-                locationName: "Click me",
-                discipline: "",
-                coordinate: mapCoordinate)
-            self.mapView.addAnnotation(artwork)
+            self.newEventLocation = mapCoordinate
+            
+            self.performSegueWithIdentifier("createEventSegue", sender: self)
         }
     }
     
@@ -112,6 +115,11 @@ class ViewController: UIViewController {
             let destinationViewController: detailViewViewController = segue.destinationViewController as! detailViewViewController
             destinationViewController.title = self.clickedTitle
             destinationViewController.headerText = self.clickedSubtitle
+        } else if(segue.identifier == "createEventSegue") {
+            print("Preparing for segue to create event...")
+            let destinationViewController: addEventViewController = segue.destinationViewController as! addEventViewController
+            destinationViewController.eventLocation = self.newEventLocation
+            destinationViewController.title = "Create Event"
         }
     }
     

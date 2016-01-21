@@ -53,25 +53,21 @@
                                 <action selector="logoutClicked:" destination="BYZ-38-t0r" id="iFw-1r-Jof"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="nLC-Cb-0Aa">
-                            <connections>
-                                <segue destination="poj-Tw-x2N" kind="show" id="3q8-LB-GTC"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="Kbv-9v-v8L" id="SBE-MZ-sMG"/>
                         <segue destination="eMo-iT-qZ3" kind="show" identifier="detailViewSegue" id="dJp-cJ-quq"/>
+                        <segue destination="poj-Tw-x2N" kind="show" identifier="createEventSegue" id="Fe3-E8-aTJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1253" y="430"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Event View Controller-->
         <scene sceneID="7oL-1U-f4j">
             <objects>
-                <viewController id="poj-Tw-x2N" sceneMemberID="viewController">
+                <viewController id="poj-Tw-x2N" customClass="addEventViewController" customModule="Its_Lit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="u2S-u5-Mc9"/>
                         <viewControllerLayoutGuide type="bottom" id="DvJ-71-PPb"/>
@@ -79,9 +75,46 @@
                     <view key="view" contentMode="scaleToFill" id="O9f-Zg-diy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zId-tS-Wfy">
+                                <rect key="frame" x="12" y="131" width="81" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rYZ-sP-tF2">
+                                <rect key="frame" x="113" y="127" width="242" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="biS-OE-q1g">
+                                <rect key="frame" x="113" y="202" width="242" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsa-J7-YMT">
+                                <rect key="frame" x="55" y="206" width="38" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cjD-FB-sJc">
+                                <rect key="frame" x="149" y="319" width="76" height="30"/>
+                                <state key="normal" title="Save Event"/>
+                                <connections>
+                                    <action selector="saveEventButtonClicked:" destination="poj-Tw-x2N" eventType="touchUpInside" id="eLe-Jf-U6C"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="eventTitleTextField" destination="rYZ-sP-tF2" id="OJ5-50-Iud"/>
+                        <outlet property="typeTextField" destination="biS-OE-q1g" id="axg-KX-4rR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l4t-Lp-Y2t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
