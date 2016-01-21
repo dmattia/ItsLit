@@ -5,6 +5,24 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
+        <!--Log In View Controller-->
+        <scene sceneID="F9H-Bd-z74">
+            <objects>
+                <viewController storyboardIdentifier="Login" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gNp-ix-MZn" customClass="PFLogInViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ytE-kz-XKO"/>
+                        <viewControllerLayoutGuide type="bottom" id="iUI-Sw-tp5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="y8p-q5-WPk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4ze-L2-ypd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1207" y="-342"/>
+        </scene>
         <!--It's Lit!-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -29,7 +47,18 @@
                             <constraint firstAttribute="trailing" secondItem="Kbv-9v-v8L" secondAttribute="trailing" id="VUe-9L-YPA"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="It's Lit!" id="J3J-cd-BHp"/>
+                    <navigationItem key="navigationItem" title="It's Lit!" id="J3J-cd-BHp">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="g4j-Vo-W2T">
+                            <connections>
+                                <action selector="logoutClicked:" destination="BYZ-38-t0r" id="iFw-1r-Jof"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="nLC-Cb-0Aa">
+                            <connections>
+                                <segue destination="poj-Tw-x2N" kind="show" id="3q8-LB-GTC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="Kbv-9v-v8L" id="SBE-MZ-sMG"/>
                         <segue destination="eMo-iT-qZ3" kind="show" identifier="detailViewSegue" id="dJp-cJ-quq"/>
@@ -38,6 +67,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1253" y="430"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7oL-1U-f4j">
+            <objects>
+                <viewController id="poj-Tw-x2N" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="u2S-u5-Mc9"/>
+                        <viewControllerLayoutGuide type="bottom" id="DvJ-71-PPb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="O9f-Zg-diy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l4t-Lp-Y2t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2016.5" y="-351.5"/>
         </scene>
         <!--Detail View View Controller-->
         <scene sceneID="7Qy-Ij-Wbe">
@@ -48,29 +96,62 @@
                         <viewControllerLayoutGuide type="bottom" id="2Ao-dy-rqh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ynR-qQ-6T9">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="739-Q0-D5j">
-                                <rect key="frame" x="257" y="289" width="86" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Detail View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="739-Q0-D5j">
+                                <rect key="frame" x="146" y="309" width="86" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FFG-Iy-YEu">
+                                <rect key="frame" x="236" y="240" width="51" height="31"/>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="P6L-hI-4tO">
+                                <rect key="frame" x="236" y="182" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I'm Going!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgZ-2i-99w">
+                                <rect key="frame" x="108" y="187" width="78" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Was Shutdown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8f-uJ-24l">
+                                <rect key="frame" x="90" y="245" width="115" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number Going:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJV-80-4BJ">
+                                <rect key="frame" x="131" y="94" width="116" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="It's Lit!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xZ-9h-1yM">
+                                <rect key="frame" x="162" y="140" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RfE-9o-vHt">
+                                <rect key="frame" x="158" y="356" width="59" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="739-Q0-D5j" firstAttribute="centerX" secondItem="ynR-qQ-6T9" secondAttribute="centerX" id="21H-US-HTE"/>
-                            <constraint firstItem="739-Q0-D5j" firstAttribute="centerY" secondItem="ynR-qQ-6T9" secondAttribute="centerY" id="409-6b-8ZX"/>
-                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="headerLabel" destination="739-Q0-D5j" id="5Tw-AW-IsJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="46U-ZV-JTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2017" y="430"/>
+            <point key="canvasLocation" x="2016.5" y="457.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Bcp-cu-d4x">

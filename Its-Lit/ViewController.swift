@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import ParseUI
 import MapKit
 
 class ViewController: UIViewController {
@@ -15,6 +16,24 @@ class ViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
     var clickedTitle: String?
     var clickedSubtitle: String?
+    
+    @IBAction func logoutClicked(sender: AnyObject) {
+        print("Logout clicked")
+        PFUser.logOut()
+        let viewController:PFLogInViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login") as! PFLogInViewController
+        viewController.logInView?.logo = nil
+        self.presentViewController(viewController, animated: true, completion: nil)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        dispatch_async(dispatch_get_main_queue(), {
+            if(PFUser.currentUser() == nil) {
+                let viewController:PFLogInViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login") as! PFLogInViewController
+                viewController.logInView?.logo = nil
+                self.presentViewController(viewController, animated: true, completion: nil)
+            }
+        })
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +66,12 @@ class ViewController: UIViewController {
             }
             self.mapView.addAnnotations(annotations)
         }
+        
+        let lpgr = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
+        lpgr.minimumPressDuration = 0.5
+        lpgr.delaysTouchesBegan = true
+        self.mapView.addGestureRecognizer(lpgr)
+        
         print("View Did Load finished")
     }
     
@@ -55,6 +80,19 @@ class ViewController: UIViewController {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
             regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
+    }
+    
+    func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
+        if(gestureRecognizer.state == UIGestureRecognizerState.Began) {
+            let locPressed = gestureRecognizer.locationInView(self.mapView)
+            let mapCoordinate: CLLocationCoordinate2D = self.mapView.convertPoint(locPressed, toCoordinateFromView: self.mapView)
+            
+            let artwork = Artwork(title: "New Event",
+                locationName: "Click me",
+                discipline: "",
+                coordinate: mapCoordinate)
+            self.mapView.addAnnotation(artwork)
+        }
     }
     
     func mapView(mapView: MKMapView, annotationView: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {

@@ -26,6 +26,7 @@ extension ViewController: MKMapViewDelegate {
                 view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView
             }
             print("Before setting color: \(annotation.subtitle!)")
+            view.animatesDrop = true
             view.pinTintColor = UIColor.greenColor()
             return view
         }
