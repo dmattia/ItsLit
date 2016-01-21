@@ -8,6 +8,7 @@
 
 import Foundation
 import MapKit
+import Parse
 
 extension ViewController: MKMapViewDelegate {
     
@@ -25,9 +26,26 @@ extension ViewController: MKMapViewDelegate {
                 view.calloutOffset = CGPoint(x: -5, y: 5)
                 view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView
             }
-            print("Before setting color: \(annotation.subtitle!)")
             view.animatesDrop = true
-            view.pinTintColor = UIColor.greenColor()
+            
+            // Determine color based upon numer of users going to the event
+            let query = PFQuery(className: "Event")
+            query.getObjectInBackgroundWithId(annotation.objectID!) {
+                (event: PFObject?, error: NSError?) -> Void in
+                if error == nil && event != nil {
+                    let going = event?.objectForKey("UsersGoing")?.count
+                    if(going == 0) {
+                        view.pinTintColor = UIColor.greenColor()
+                    } else if (going < 3) {
+                        view.pinTintColor = UIColor.yellowColor()
+                    } else {
+                        view.pinTintColor = UIColor.redColor()
+                    }
+                } else {
+                    print(error)
+                }
+            }
+            
             return view
         }
         return nil

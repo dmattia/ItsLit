@@ -24,6 +24,7 @@ class addEventViewController: UIViewController, UIPickerViewDataSource, UIPicker
         newEvent["type"] = self.typeTextField.text
         newEvent["location"] = PFGeoPoint(latitude: self.eventLocation!.latitude,
             longitude: self.eventLocation!.longitude)
+        newEvent["UsersGoing"] = [PFUser.currentUser()!]
         newEvent.saveInBackgroundWithBlock { (saved: Bool, error: NSError?) -> Void in
             if(saved) {
                 print("Saved Event")

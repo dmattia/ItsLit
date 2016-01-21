@@ -143,6 +143,9 @@
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="P6L-hI-4tO">
                                 <rect key="frame" x="236" y="182" width="51" height="31"/>
+                                <connections>
+                                    <action selector="goingSwitchToggled:" destination="eMo-iT-qZ3" eventType="valueChanged" id="CMa-xt-NL9"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I'm Going!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgZ-2i-99w">
                                 <rect key="frame" x="108" y="187" width="78" height="21"/>
@@ -156,8 +159,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number Going:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJV-80-4BJ">
-                                <rect key="frame" x="131" y="94" width="116" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number Going:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJV-80-4BJ">
+                                <rect key="frame" x="20" y="94" width="335" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -179,7 +182,9 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="goingSwitch" destination="P6L-hI-4tO" id="jSG-JB-lZs"/>
                         <outlet property="headerLabel" destination="739-Q0-D5j" id="5Tw-AW-IsJ"/>
+                        <outlet property="numberGoingLabel" destination="qJV-80-4BJ" id="dSj-WT-xOp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="46U-ZV-JTI" userLabel="First Responder" sceneMemberID="firstResponder"/>

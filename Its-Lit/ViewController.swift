@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     var clickedTitle: String?
     var clickedSubtitle: String?
     var newEventLocation: CLLocationCoordinate2D?
+    var evendIDClicked: String?
     
     @IBAction func logoutClicked(sender: AnyObject) {
         print("Logout clicked")
@@ -47,6 +48,7 @@ class ViewController: UIViewController {
                     locationName: "",
                     discipline: event["type"] as! String,
                     coordinate: CLLocationCoordinate2D(latitude: event["location"].latitude, longitude: event["location"].longitude))
+                artwork.objectID = event.objectId
                 
                 annotations.append(artwork)
             }
@@ -57,8 +59,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mapView.mapType = MKMapType.Hybrid;
         mapView.showsBuildings = true;
-        mapView.mapType = MKMapType.SatelliteFlyover;
         let initialLocation = CLLocation(latitude: 41.7030, longitude: -86.2390)
         centerMapOnLocation(initialLocation)
         
@@ -66,7 +68,7 @@ class ViewController: UIViewController {
         let mapCamera = MKMapCamera()
         mapCamera.centerCoordinate = locationCoordinates
         mapCamera.pitch = 45;
-        mapCamera.altitude = 750;
+        mapCamera.altitude = 3000;
         mapCamera.heading = 0;
         
         self.mapView.camera = mapCamera;
@@ -122,6 +124,5 @@ class ViewController: UIViewController {
             destinationViewController.title = "Create Event"
         }
     }
-    
 }
 
