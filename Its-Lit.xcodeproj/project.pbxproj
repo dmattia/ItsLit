@@ -54,9 +54,9 @@
 		F18851AF1C506E090018590C /* Artwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 		F18851B11C5070000018590C /* VCMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCMapView.swift; sourceTree = "<group>"; };
 		F18851B31C507A520018590C /* detailViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailViewViewController.swift; sourceTree = "<group>"; };
-		F18851B51C5089690018590C /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		F18851B61C5089690018590C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		F18851B91C5089750018590C /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		F18851B51C5089690018590C /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "Its-Lit/Bolts.framework"; sourceTree = "<group>"; };
+		F18851B61C5089690018590C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "Its-Lit/Parse.framework"; sourceTree = "<group>"; };
+		F18851B91C5089750018590C /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = "Its-Lit/ParseUI.framework"; sourceTree = "<group>"; };
 		F18851BB1C50898F0018590C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		F18851BD1C5089970018590C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		F18851BF1C5089A00018590C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -127,6 +127,9 @@
 			children = (
 				F18851CD1C508A0E0018590C /* libsqlite3.tbd */,
 				F18851CB1C508A040018590C /* libz.tbd */,
+				F18851B91C5089750018590C /* ParseUI.framework */,
+				F18851B51C5089690018590C /* Bolts.framework */,
+				F18851B61C5089690018590C /* Parse.framework */,
 				F18851C91C5089D00018590C /* SystemConfiguration.framework */,
 				F18851C71C5089BF0018590C /* StoreKit.framework */,
 				F18851C51C5089B70018590C /* Security.framework */,
@@ -156,9 +159,6 @@
 		F1CE3F211C50675600F7A149 /* Its-Lit */ = {
 			isa = PBXGroup;
 			children = (
-				F18851B91C5089750018590C /* ParseUI.framework */,
-				F18851B51C5089690018590C /* Bolts.framework */,
-				F18851B61C5089690018590C /* Parse.framework */,
 				F1CE3F221C50675600F7A149 /* AppDelegate.swift */,
 				F1CE3F241C50675600F7A149 /* ViewController.swift */,
 				F18851B31C507A520018590C /* detailViewViewController.swift */,

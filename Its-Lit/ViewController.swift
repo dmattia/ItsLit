@@ -34,7 +34,8 @@ class ViewController: UIViewController {
         self.mapView.camera = mapCamera;
         self.mapView.delegate = self;
         
-        var query = PFQuery(className: "Event")
+        var annotations = [Artwork]()
+        let query = PFQuery(className: "Event")
         query.findObjectsInBackgroundWithBlock { (events: [PFObject]?, error: NSError?) -> Void in
             for event in events! {
                 let artwork = Artwork(title: event["Title"] as! String,
@@ -42,8 +43,9 @@ class ViewController: UIViewController {
                     discipline: event["type"] as! String,
                     coordinate: CLLocationCoordinate2D(latitude: event["location"].latitude, longitude: event["location"].longitude))
                 
-                self.mapView.addAnnotation(artwork)
+                annotations.append(artwork)
             }
+            self.mapView.addAnnotations(annotations)
         }
         print("View Did Load finished")
     }
