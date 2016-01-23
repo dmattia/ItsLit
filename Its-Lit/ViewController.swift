@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         dispatch_async(dispatch_get_main_queue(), {
             if(PFUser.currentUser() == nil) {
-                let viewController:PFLogInViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login") as! PFLogInViewController
+                let viewController:parseLogInViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login") as! parseLogInViewController
                 viewController.logInView?.logo = nil
                 self.presentViewController(viewController, animated: true, completion: nil)
             }
@@ -61,10 +61,10 @@ class ViewController: UIViewController {
         
         mapView.mapType = MKMapType.Hybrid;
         mapView.showsBuildings = true;
-        let initialLocation = CLLocation(latitude: 41.7030, longitude: -86.2390)
+        let initialLocation = CLLocation(latitude: 41.70019395543492, longitude: -86.2354780409952)
         centerMapOnLocation(initialLocation)
         
-        let locationCoordinates = CLLocationCoordinate2DMake(41.7030,-86.2390)
+        let locationCoordinates = CLLocationCoordinate2DMake(41.70019395543492,-86.2354780409952)
         let mapCamera = MKMapCamera()
         mapCamera.centerCoordinate = locationCoordinates
         mapCamera.pitch = 45;
@@ -78,8 +78,6 @@ class ViewController: UIViewController {
         lpgr.minimumPressDuration = 0.5
         lpgr.delaysTouchesBegan = true
         self.mapView.addGestureRecognizer(lpgr)
-        
-        print("View Did Load finished")
     }
     
     let regionRadius: CLLocationDistance = 2000;
@@ -115,6 +113,7 @@ class ViewController: UIViewController {
         if(segue.identifier == "detailViewSegue") {
             print("Preparing for segue to detail view...")
             let destinationViewController: detailViewViewController = segue.destinationViewController as! detailViewViewController
+            destinationViewController.modalPresentationStyle = .OverFullScreen
             destinationViewController.title = self.clickedTitle
             destinationViewController.headerText = self.clickedSubtitle
         } else if(segue.identifier == "createEventSegue") {

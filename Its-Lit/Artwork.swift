@@ -26,6 +26,6 @@ class Artwork: NSObject, MKAnnotation {
     }
     
     var subtitle: String? {
-        return locationName
+        return discipline
     }
 }

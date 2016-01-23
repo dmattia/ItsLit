@@ -13,14 +13,14 @@ class detailViewViewController: UIViewController {
     
     @IBOutlet var headerLabel: UILabel!
     @IBOutlet var goingSwitch: UISwitch!
+    @IBOutlet var numberGoingLabel: UILabel!
+    @IBOutlet var starRatingView: HCSStarRatingView!
     var headerText: String?
     var userCount: Int = 0
-    @IBOutlet var numberGoingLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("Header text: \(headerText!)")
         self.headerLabel.text = headerText
         
         // Set @goingSwitch to on or off based on if user is already going to event
@@ -44,6 +44,36 @@ class detailViewViewController: UIViewController {
                 }
                 self.userCount = usersGoing.count
                 self.numberGoingLabel.text = "Number Going: \(self.userCount)"
+            } else {
+                print("Query failed: \(error)")
+            }
+        }
+    }
+    
+    @IBAction func saveRatingClicked(sender: AnyObject) {
+        let query = PFQuery(className: "Event")
+        query.whereKey("Title", equalTo: self.title!)
+        query.findObjectsInBackgroundWithBlock {
+            (events: [PFObject]?, error: NSError?) -> Void in
+            if(events != nil && events!.count == 1) {
+                let event = events![0]
+                
+                // Update @event to have the new rating for this user
+                var dictArray = event["ratings"] as! [Dictionary<String, CGFloat>]
+                var dict = dictArray[0]
+                dict[PFUser.currentUser()!.objectId!] = self.starRatingView.value
+                dictArray[0] = dict
+                event.setObject(dictArray, forKey: "ratings")
+                
+                event.saveInBackgroundWithBlock({ (completed: Bool, error: NSError?) -> Void in
+                    if(completed) {
+                        print("Event saved")
+                        
+                    } else {
+                        print("Error saving: \(error)")
+                    }
+                })
+                
             } else {
                 print("Query failed: \(error)")
             }

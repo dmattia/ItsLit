@@ -35,11 +35,13 @@ extension ViewController: MKMapViewDelegate {
                 if error == nil && event != nil {
                     let going = event?.objectForKey("UsersGoing")?.count
                     if(going == 0) {
-                        view.pinTintColor = UIColor.greenColor()
-                    } else if (going < 3) {
-                        view.pinTintColor = UIColor.yellowColor()
-                    } else {
                         view.pinTintColor = UIColor.redColor()
+                    } else if (going < 5) {
+                        view.pinTintColor = UIColor.yellowColor()
+                    } else if (going < 10){
+                        view.pinTintColor = UIColor.orangeColor()
+                    } else {
+                        view.pinTintColor = UIColor.blueColor()
                     }
                 } else {
                     print(error)
