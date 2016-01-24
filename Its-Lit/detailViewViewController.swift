@@ -67,10 +67,13 @@ class detailViewViewController: UIViewController {
                 
                 event.saveInBackgroundWithBlock({ (completed: Bool, error: NSError?) -> Void in
                     if(completed) {
-                        print("Event saved")
-                        
+                        let alert = UIAlertController(title: "Success", message: "Your rating has been saved", preferredStyle: UIAlertControllerStyle.Alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                        self.presentViewController(alert, animated: true, completion: nil)
                     } else {
-                        print("Error saving: \(error)")
+                        let alert = UIAlertController(title: "Error", message: "Could not save rating. Check internet connection", preferredStyle: UIAlertControllerStyle.Alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                        self.presentViewController(alert, animated: true, completion: nil)
                     }
                 })
                 
