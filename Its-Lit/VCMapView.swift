@@ -25,6 +25,20 @@ extension ViewController: MKMapViewDelegate {
                 view.canShowCallout = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
                 view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView
+                
+                // Create rating view in callout
+                let ratingView = HCSStarRatingView(frame: CGRect(x: 0, y: 0, width: 80, height: 20))
+                ratingView.value = 2
+                
+                let widthConstraint = NSLayoutConstraint(item: ratingView, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 100)
+                ratingView.addConstraint(widthConstraint)
+                
+                let heightConstraint = NSLayoutConstraint(item: ratingView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 40)
+                ratingView.addConstraint(heightConstraint)
+                
+                ratingView.backgroundColor = UIColor.clearColor()
+                ratingView.userInteractionEnabled = false
+                view.detailCalloutAccessoryView = ratingView
             }
             view.animatesDrop = true
             
@@ -52,5 +66,13 @@ extension ViewController: MKMapViewDelegate {
         }
         return nil
     }
+    
+    /*
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+        let ratingView: HCSStarRatingView = HCSStarRatingView(frame: CGRect(x: 0, y: -30, width: 80, height: 20))
+        view.addSubview(ratingView)
+        //view.bringSubviewToFront(ratingView)
+    }
+    */
     
 }
