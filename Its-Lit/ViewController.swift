@@ -11,7 +11,7 @@ import Parse
 import ParseUI
 import MapKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, PFLogInViewControllerDelegate {
 
     @IBOutlet var mapView: MKMapView!
     var clickedTitle: String?
@@ -22,17 +22,33 @@ class ViewController: UIViewController {
     @IBAction func logoutClicked(sender: AnyObject) {
         print("Logout clicked")
         PFUser.logOut()
-        let viewController:PFLogInViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login") as! PFLogInViewController
-        viewController.logInView?.logo = nil
-        self.presentViewController(viewController, animated: true, completion: nil)
+        self.displayLogIn()
+    }
+    
+    func displayLogIn() {
+        let loginViewController = PFLogInViewController()
+        loginViewController.delegate = self
+        
+        loginViewController.fields = [
+            PFLogInFields.UsernameAndPassword,
+            PFLogInFields.LogInButton,
+            PFLogInFields.SignUpButton,
+            PFLogInFields.PasswordForgotten,
+            //PFLogInFields.DismissButton,
+            PFLogInFields.Facebook
+        ]
+        
+        self.presentViewController(loginViewController, animated: true, completion: nil)
+    }
+    
+    func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func viewDidAppear(animated: Bool) {
         dispatch_async(dispatch_get_main_queue(), {
             if(PFUser.currentUser() == nil) {
-                let viewController:parseLogInViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login") as! parseLogInViewController
-                viewController.logInView?.logo = nil
-                self.presentViewController(viewController, animated: true, completion: nil)
+                self.displayLogIn()
             }
         })
         // Clear all annotations

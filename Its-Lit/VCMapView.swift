@@ -28,7 +28,6 @@ extension ViewController: MKMapViewDelegate {
                 
                 // Create rating view in callout
                 let ratingView = HCSStarRatingView(frame: CGRect(x: 0, y: 0, width: 80, height: 20))
-                //ratingView.value = 2
                 let query: PFQuery = PFQuery(className: "Event")
                 query.getObjectInBackgroundWithId(annotation.objectID!) {
                     (event: PFObject?, error: NSError?) -> Void in
@@ -39,8 +38,6 @@ extension ViewController: MKMapViewDelegate {
                         for pair in dict {
                             sum = sum + pair.1
                         }
-                        let eventname = event!["Title"] as! String
-                        print("sum is \(sum) and count is \(dict.count) for event \(eventname)")
                         ratingView.value = sum / CGFloat(integerLiteral: dict.count)
                     }
                 }

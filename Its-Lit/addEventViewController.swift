@@ -25,6 +25,11 @@ class addEventViewController: UIViewController, UIPickerViewDataSource, UIPicker
         newEvent["location"] = PFGeoPoint(latitude: self.eventLocation!.latitude,
             longitude: self.eventLocation!.longitude)
         newEvent["UsersGoing"] = [PFUser.currentUser()!]
+        let dict = Dictionary<String, CGFloat>()
+        var array = [Dictionary<String, CGFloat>]()
+        array.append(dict)
+        newEvent["ratings"] = array
+        
         newEvent.saveInBackgroundWithBlock { (saved: Bool, error: NSError?) -> Void in
             if(saved) {
                 print("Saved Event")
