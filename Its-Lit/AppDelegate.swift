@@ -12,6 +12,7 @@ import Bolts
 import ParseUI
 import FBSDKCoreKit
 import ParseFacebookUtilsV4
+import ParseTwitterUtils
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,7 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
-
+        PFTwitterUtils.initializeWithConsumerKey("kqGWsBZNuAlGQKgIlvOjWeHEq", consumerSecret: "PTIARAxtF4sZ4SS1WbAAgW2r18mYkkgQxkeiQhsbE9K8MxPl9f")
+        
         return true
     }
     

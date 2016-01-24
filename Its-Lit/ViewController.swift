@@ -34,10 +34,10 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate {
             PFLogInFields.LogInButton,
             PFLogInFields.SignUpButton,
             PFLogInFields.PasswordForgotten,
-            //PFLogInFields.DismissButton,
+            PFLogInFields.Twitter,
             PFLogInFields.Facebook
         ]
-        
+                
         self.presentViewController(loginViewController, animated: true, completion: nil)
     }
     
