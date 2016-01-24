@@ -28,7 +28,22 @@ extension ViewController: MKMapViewDelegate {
                 
                 // Create rating view in callout
                 let ratingView = HCSStarRatingView(frame: CGRect(x: 0, y: 0, width: 80, height: 20))
-                ratingView.value = 2
+                //ratingView.value = 2
+                let query: PFQuery = PFQuery(className: "Event")
+                query.getObjectInBackgroundWithId(annotation.objectID!) {
+                    (event: PFObject?, error: NSError?) -> Void in
+                    if(event != nil) {
+                        let dictArray = event!.objectForKey("ratings") as! [Dictionary<String, CGFloat>]
+                        let dict = dictArray[0]
+                        var sum = 0 as CGFloat
+                        for pair in dict {
+                            sum = sum + pair.1
+                        }
+                        let eventname = event!["Title"] as! String
+                        print("sum is \(sum) and count is \(dict.count) for event \(eventname)")
+                        ratingView.value = sum / CGFloat(integerLiteral: dict.count)
+                    }
+                }
                 
                 let widthConstraint = NSLayoutConstraint(item: ratingView, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 100)
                 ratingView.addConstraint(widthConstraint)
@@ -36,6 +51,8 @@ extension ViewController: MKMapViewDelegate {
                 let heightConstraint = NSLayoutConstraint(item: ratingView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 40)
                 ratingView.addConstraint(heightConstraint)
                 
+                ratingView.allowsHalfStars = true
+                ratingView.accurateHalfStars = true
                 ratingView.backgroundColor = UIColor.clearColor()
                 ratingView.userInteractionEnabled = false
                 view.detailCalloutAccessoryView = ratingView
