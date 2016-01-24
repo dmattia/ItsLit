@@ -36,6 +36,8 @@
 		F1C933C01C53042100DE02F9 /* parseLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C933BF1C53042100DE02F9 /* parseLogInViewController.swift */; };
 		F1C9EA581C5594F10078D9FA /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C9EA571C5594F10078D9FA /* Accounts.framework */; };
 		F1C9EA5A1C5594F60078D9FA /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C9EA591C5594F60078D9FA /* Social.framework */; };
+		F1C9EA5E1C559C450078D9FA /* 2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1C9EA5D1C559C450078D9FA /* 2x.png */; };
+		F1C9EA601C559C5C0078D9FA /* 3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1C9EA5F1C559C5C0078D9FA /* 3x.png */; };
 		F1CE3F231C50675600F7A149 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CE3F221C50675600F7A149 /* AppDelegate.swift */; };
 		F1CE3F251C50675600F7A149 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CE3F241C50675600F7A149 /* ViewController.swift */; };
 		F1CE3F281C50675600F7A149 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1CE3F261C50675600F7A149 /* Main.storyboard */; };
@@ -95,6 +97,8 @@
 		F1C933C21C530D5400DE02F9 /* Its-Lit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Its-Lit-Bridging-Header.h"; sourceTree = "<group>"; };
 		F1C9EA571C5594F10078D9FA /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		F1C9EA591C5594F60078D9FA /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		F1C9EA5D1C559C450078D9FA /* 2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2x.png; sourceTree = "<group>"; };
+		F1C9EA5F1C559C5C0078D9FA /* 3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3x.png; sourceTree = "<group>"; };
 		F1CE3F1F1C50675600F7A149 /* Its-Lit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Its-Lit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1CE3F221C50675600F7A149 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1CE3F241C50675600F7A149 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 		F1CE3F211C50675600F7A149 /* Its-Lit */ = {
 			isa = PBXGroup;
 			children = (
+				F1C9EA5D1C559C450078D9FA /* 2x.png */,
+				F1C9EA5F1C559C5C0078D9FA /* 3x.png */,
 				F18851D11C51285B0018590C /* IMG_2233.JPG */,
 				F1CE3F221C50675600F7A149 /* AppDelegate.swift */,
 				F1CE3F241C50675600F7A149 /* ViewController.swift */,
@@ -351,7 +357,9 @@
 			files = (
 				F1CE3F2D1C50675600F7A149 /* LaunchScreen.storyboard in Resources */,
 				F18851D21C51285B0018590C /* IMG_2233.JPG in Resources */,
+				F1C9EA5E1C559C450078D9FA /* 2x.png in Resources */,
 				F1CE3F2A1C50675600F7A149 /* Assets.xcassets in Resources */,
+				F1C9EA601C559C5C0078D9FA /* 3x.png in Resources */,
 				F1CE3F281C50675600F7A149 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
