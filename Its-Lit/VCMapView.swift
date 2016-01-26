@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 import Parse
 
-extension ViewController: MKMapViewDelegate {
+extension ViewController {
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? Artwork {
@@ -20,6 +20,22 @@ extension ViewController: MKMapViewDelegate {
                 as? MKPinAnnotationView {
                     dequeuedView.annotation = annotation
                     view = dequeuedView
+                    //let ratingView = HCSStarRatingView(frame: CGRect(x: 0, y: 0, width: 80, height: 20))
+                    let query: PFQuery = PFQuery(className: "Event")
+                    query.getObjectInBackgroundWithId(annotation.objectID!) {
+                        (event: PFObject?, error: NSError?) -> Void in
+                        if(event != nil) {
+                            let dictArray = event!.objectForKey("ratings") as! [Dictionary<String, CGFloat>]
+                            let dict = dictArray[0]
+                            var sum = 0 as CGFloat
+                            for pair in dict {
+                                sum = sum + pair.1
+                            }
+                            //ratingView.value = sum / CGFloat(integerLiteral: dict.count)
+                            (view.detailCalloutAccessoryView as! HCSStarRatingView).value = sum / CGFloat(integerLiteral: dict.count)
+                        }
+                        //view.detailCalloutAccessoryView = ratingView
+                    }
             } else {
                 view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 view.canShowCallout = true

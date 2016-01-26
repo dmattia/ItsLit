@@ -11,7 +11,7 @@ import Parse
 import ParseUI
 import MapKit
 
-class ViewController: UIViewController, PFLogInViewControllerDelegate {
+class ViewController: UIViewController, PFLogInViewControllerDelegate, MKMapViewDelegate {
 
     @IBOutlet var mapView: MKMapView!
     var clickedTitle: String?
@@ -74,6 +74,8 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.mapView.delegate = self
         
         mapView.mapType = MKMapType.Hybrid;
         mapView.showsBuildings = true;
