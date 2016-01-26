@@ -61,15 +61,19 @@ extension ViewController: MKMapViewDelegate {
             query.getObjectInBackgroundWithId(annotation.objectID!) {
                 (event: PFObject?, error: NSError?) -> Void in
                 if error == nil && event != nil {
-                    let going = event?.objectForKey("UsersGoing")?.count
-                    if(going == 0) {
-                        view.pinTintColor = UIColor.redColor()
-                    } else if (going < 3) {
-                        view.pinTintColor = UIColor.yellowColor()
-                    } else if (going < 8){
-                        view.pinTintColor = UIColor.orangeColor()
+                    if(!(event!["shutdown"] as! Bool)) {
+                        let going = event?.objectForKey("UsersGoing")?.count
+                        if(going == 0) {
+                            view.pinTintColor = UIColor.redColor()
+                        } else if (going < 3) {
+                            view.pinTintColor = UIColor.yellowColor()
+                        } else if (going < 8){
+                            view.pinTintColor = UIColor.orangeColor()
+                        } else {
+                            view.pinTintColor = UIColor.blueColor()
+                        }
                     } else {
-                        view.pinTintColor = UIColor.blueColor()
+                        view.pinTintColor = UIColor.blackColor()
                     }
                 } else {
                     print(error)

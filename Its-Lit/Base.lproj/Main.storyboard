@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5hT-tk-WBX">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
@@ -222,6 +221,9 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FFG-Iy-YEu">
                                 <rect key="frame" x="236" y="240" width="51" height="31"/>
+                                <connections>
+                                    <action selector="shutdownSwitchToggled:" destination="eMo-iT-qZ3" eventType="valueChanged" id="6oN-PI-Y0p"/>
+                                </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="P6L-hI-4tO">
                                 <rect key="frame" x="236" y="182" width="51" height="31"/>
@@ -253,12 +255,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RfE-9o-vHt">
-                                <rect key="frame" x="20" y="356" width="335" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8kb-Rs-m4O" customClass="HCSStarRatingView">
                                 <rect key="frame" x="69" y="416" width="240" height="76"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -284,7 +280,9 @@
                     <connections>
                         <outlet property="goingSwitch" destination="P6L-hI-4tO" id="jSG-JB-lZs"/>
                         <outlet property="headerLabel" destination="739-Q0-D5j" id="5Tw-AW-IsJ"/>
+                        <outlet property="litLabel" destination="4xZ-9h-1yM" id="jEJ-w4-KQM"/>
                         <outlet property="numberGoingLabel" destination="qJV-80-4BJ" id="dSj-WT-xOp"/>
+                        <outlet property="shutdownSwitch" destination="FFG-Iy-YEu" id="b5n-dy-dqZ"/>
                         <outlet property="starRatingView" destination="8kb-Rs-m4O" id="EQF-uG-050"/>
                     </connections>
                 </viewController>

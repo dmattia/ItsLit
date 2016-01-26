@@ -11,6 +11,8 @@ import Parse
 
 class detailViewViewController: UIViewController {
     
+    @IBOutlet weak var shutdownSwitch: UISwitch!
+    @IBOutlet weak var litLabel: UILabel!
     @IBOutlet var headerLabel: UILabel!
     @IBOutlet var goingSwitch: UISwitch!
     @IBOutlet var numberGoingLabel: UILabel!
@@ -42,8 +44,20 @@ class detailViewViewController: UIViewController {
                 if(alreadyIn) {
                     self.goingSwitch.setOn(true, animated: true)
                 }
+                if(event["shutdown"] as! Bool) {
+                    self.shutdownSwitch.setOn(true, animated: true)
+                }
                 self.userCount = usersGoing.count
                 self.numberGoingLabel.text = "Number Going: \(self.userCount)"
+                if(self.userCount == 0) {
+                    self.litLabel.text = "Just getting started"
+                } else if (self.userCount < 3) {
+                    self.litLabel.text = "Kind of lit"
+                } else if (self.userCount < 8){
+                    self.litLabel.text = "It's getting lit"
+                } else {
+                    self.litLabel.text = "It's Lit!"
+                }
             } else {
                 print("Query failed: \(error)")
             }
@@ -77,6 +91,21 @@ class detailViewViewController: UIViewController {
                     }
                 })
                 
+            } else {
+                print("Query failed: \(error)")
+            }
+        }
+    }
+    
+    @IBAction func shutdownSwitchToggled(sender: AnyObject) {
+        let query = PFQuery(className: "Event")
+        query.whereKey("Title", equalTo: self.title!)
+        query.findObjectsInBackgroundWithBlock {
+            (events: [PFObject]?, error: NSError?) -> Void in
+            if(events != nil && events!.count == 1) {
+                let event = events![0] as PFObject
+                event["shutdown"] = self.shutdownSwitch.on
+                event.saveInBackground()
             } else {
                 print("Query failed: \(error)")
             }

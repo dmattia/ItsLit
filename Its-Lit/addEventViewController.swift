@@ -25,6 +25,7 @@ class addEventViewController: UIViewController, UIPickerViewDataSource, UIPicker
         newEvent["location"] = PFGeoPoint(latitude: self.eventLocation!.latitude,
             longitude: self.eventLocation!.longitude)
         newEvent["UsersGoing"] = [PFUser.currentUser()!]
+        newEvent["shutdown"] = false
         let dict = Dictionary<String, CGFloat>()
         var array = [Dictionary<String, CGFloat>]()
         array.append(dict)
