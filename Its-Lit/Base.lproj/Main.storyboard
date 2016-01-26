@@ -131,6 +131,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Vp-do-fBN">
                                 <rect key="frame" x="109" y="466" width="150" height="30"/>
                                 <state key="normal" title="Terms and Conditions"/>
+                                <connections>
+                                    <segue destination="Q9N-pv-cnl" kind="show" id="NuN-B1-Qfv"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tp7-ff-5hw">
                                 <rect key="frame" x="143" y="266" width="82" height="30"/>
@@ -144,6 +147,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iy9-iZ-71f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1253.5" y="1204.5"/>
+        </scene>
+        <!--Terms View Controller-->
+        <scene sceneID="fy0-P5-sN0">
+            <objects>
+                <viewController id="Q9N-pv-cnl" customClass="termsViewController" customModule="Its_Lit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uxO-nM-vBW"/>
+                        <viewControllerLayoutGuide type="bottom" id="Evh-CG-hwU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VKD-8L-lJi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GgH-A3-KaI">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Terms and Conditions" id="0cS-ri-P0Z">
+                                        <barButtonItem key="rightBarButtonItem" title="Done" id="2GC-NQ-he9">
+                                            <connections>
+                                                <action selector="doneButtonPressed:" destination="Q9N-pv-cnl" id="gEq-n8-WFr"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gMU-Zl-V69" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2016.5" y="1204.5"/>
         </scene>
         <!--Add Event View Controller-->
         <scene sceneID="7oL-1U-f4j">

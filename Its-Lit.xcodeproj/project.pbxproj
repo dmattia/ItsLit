@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F1372F1E1C574400000D2CAB /* termsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1372F1D1C574400000D2CAB /* termsViewController.swift */; };
 		F184EA661C55752B0038E1FE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F184EA651C55752B0038E1FE /* SettingsViewController.swift */; };
 		F184EA681C557B040038E1FE /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F184EA671C557B040038E1FE /* FBSDKCoreKit.framework */; };
 		F184EA6A1C557B110038E1FE /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F184EA691C557B110038E1FE /* FBSDKLoginKit.framework */; };
@@ -66,6 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F1372F1D1C574400000D2CAB /* termsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = termsViewController.swift; sourceTree = "<group>"; };
 		F184EA651C55752B0038E1FE /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ../SettingsViewController.swift; sourceTree = "<group>"; };
 		F184EA671C557B040038E1FE /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F184EA691C557B110038E1FE /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				F18851B31C507A520018590C /* detailViewViewController.swift */,
 				F18851CF1C509C170018590C /* addEventViewController.swift */,
 				F1C933BF1C53042100DE02F9 /* parseLogInViewController.swift */,
+				F1372F1D1C574400000D2CAB /* termsViewController.swift */,
 				F1B38E261C532BD500C7BF3A /* UserRating.swift */,
 				F18851B11C5070000018590C /* VCMapView.swift */,
 				F18851AF1C506E090018590C /* Artwork.swift */,
@@ -387,6 +390,7 @@
 			files = (
 				F18851B41C507A520018590C /* detailViewViewController.swift in Sources */,
 				F18851B21C5070000018590C /* VCMapView.swift in Sources */,
+				F1372F1E1C574400000D2CAB /* termsViewController.swift in Sources */,
 				F1CE3F251C50675600F7A149 /* ViewController.swift in Sources */,
 				F184EA661C55752B0038E1FE /* SettingsViewController.swift in Sources */,
 				F18851B01C506E090018590C /* Artwork.swift in Sources */,
