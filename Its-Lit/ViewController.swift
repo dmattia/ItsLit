@@ -26,9 +26,10 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, MKMapView
     }
     
     func displayLogIn() {
-        let loginViewController = PFLogInViewController()
+        //let loginViewController = PFLogInViewController()
+        let loginViewController = parseLogInViewController()
         loginViewController.delegate = self
-        
+
         loginViewController.fields = [
             PFLogInFields.UsernameAndPassword,
             PFLogInFields.LogInButton,
@@ -37,7 +38,9 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, MKMapView
             PFLogInFields.Twitter,
             PFLogInFields.Facebook
         ]
-                
+        
+        //loginViewController.logInView?.logo = UIImageView(image: UIImage(named: "IMG_2233.JPG"))
+        
         self.presentViewController(loginViewController, animated: true, completion: nil)
     }
     

@@ -12,24 +12,36 @@ import ParseUI
 import FBSDKCoreKit
 import ParseFacebookUtilsV4
 
-class parseLogInViewController: PFLogInViewController, PFLogInViewControllerDelegate {
+class parseLogInViewController: PFLogInViewController {
     
+    var backgroundImage : UIImageView!;
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.delegate = self
+
+        let logo = UILabel()
+        logo.text = "IT'S LIT. So Sign Up."
+        logo.textColor = UIColor.whiteColor()
+        logo.font = UIFont(name: "Pacifico", size: 30)
+        logo.shadowColor = UIColor.lightGrayColor()
+        logo.shadowOffset = CGSizeMake(2, 2)
+        logInView?.logo = logo
         
-        self.facebookPermissions = ["friends_about_me"]
-        self.fields = [PFLogInFields.Facebook, PFLogInFields.Twitter, PFLogInFields.UsernameAndPassword, PFLogInFields.SignUpButton, PFLogInFields.LogInButton, PFLogInFields.PasswordForgotten, PFLogInFields.DismissButton]
+        logInView?.logInButton?.setBackgroundImage(nil, forState: .Normal)
+        logInView?.logInButton?.backgroundColor = UIColor(red: 52/255, green: 125/255, blue: 255/255, alpha: 1)
+        //self.logInView!.passwordForgottenButton?.backgroundColor = UIColor.whiteColor()
+        logInView?.passwordForgottenButton?.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+
         
-        /*
-        let logInButton = FBSDKLoginButton(frame: CGRect(x: 200, y: 200, width: 100, height: 40))
-        self.view.addSubview(logInButton)
-        */
+        backgroundImage = UIImageView(image: UIImage(named: "Party"))
+        backgroundImage.contentMode = UIViewContentMode.ScaleAspectFill
+        self.logInView!.insertSubview(backgroundImage, atIndex: 0)
+        
+        self.signUpController = ParseSignUpViewController()
     }
     
-    func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
-        self.performSegueWithIdentifier("closeLogInSegue", sender: self)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        backgroundImage.frame = CGRectMake( 0,  0,  self.logInView!.frame.width,  self.logInView!.frame.height)
     }
-    
-    
 }
