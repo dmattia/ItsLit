@@ -48,11 +48,15 @@ extension ViewController {
                 if(event != nil) {
                     let dictArray = event!.objectForKey("ratings") as! [Dictionary<String, CGFloat>]
                     let dict = dictArray[0]
-                    var sum = 0 as CGFloat
-                    for pair in dict {
-                        sum = sum + pair.1
+                    if(dict.count > 0) {
+                        var sum = 0 as CGFloat
+                        for pair in dict {
+                            sum = sum + pair.1
+                        }
+                        (view.detailCalloutAccessoryView as! HCSStarRatingView).value = sum / CGFloat(integerLiteral: dict.count)
+                    } else {
+                        (view.detailCalloutAccessoryView as! HCSStarRatingView).value = 0
                     }
-                    (view.detailCalloutAccessoryView as! HCSStarRatingView).value = sum / CGFloat(integerLiteral: dict.count)
                     
                     if(!(event!["shutdown"] as! Bool)) {
                         let going = event?.objectForKey("UsersGoing")?.count
