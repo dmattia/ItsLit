@@ -113,9 +113,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="It's Lit!" id="J3J-cd-BHp">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="g4j-Vo-W2T">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="Bf0-z6-bsU">
                             <connections>
-                                <action selector="logoutClicked:" destination="BYZ-38-t0r" id="iFw-1r-Jof"/>
+                                <action selector="backPressed:" destination="BYZ-38-t0r" id="Lwr-a6-oi7"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="zTz-BP-x2D">
@@ -317,8 +317,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cjD-FB-sJc">
-                                <rect key="frame" x="149" y="319" width="76" height="30"/>
-                                <state key="normal" title="Save Event"/>
+                                <rect key="frame" x="89" y="319" width="197" height="113"/>
+                                <fontDescription key="fontDescription" name="OriyaSangamMN" family="Oriya Sangam MN" pointSize="35"/>
+                                <state key="normal" title="Save Event">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="saveEventButtonClicked:" destination="poj-Tw-x2N" eventType="touchUpInside" id="eLe-Jf-U6C"/>
                                 </connections>
@@ -431,7 +434,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.99215686270000003" green="0.59215686270000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -479,7 +482,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sna-bW-OOf">
-                                <rect key="frame" x="55" y="331" width="264" height="53"/>
+                                <rect key="frame" x="55" y="331" width="264" height="65"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Pacifico-Regular" family="Pacifico" pointSize="31"/>
                                 <state key="normal" title="View Map">
@@ -490,7 +493,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oLI-aj-olP">
-                                <rect key="frame" x="55" y="399" width="264" height="67"/>
+                                <rect key="frame" x="55" y="406" width="264" height="65"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Pacifico-Regular" family="Pacifico" pointSize="31"/>
                                 <state key="normal" title="Campuses">
@@ -501,7 +504,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r53-hE-70n">
-                                <rect key="frame" x="55" y="480" width="264" height="67"/>
+                                <rect key="frame" x="55" y="482" width="264" height="65"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Pacifico-Regular" family="Pacifico" pointSize="31"/>
                                 <state key="normal" title="Favorites">
@@ -509,7 +512,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pH1-Vl-TnP">
-                                <rect key="frame" x="55" y="561" width="264" height="67"/>
+                                <rect key="frame" x="55" y="558" width="264" height="65"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Pacifico-Regular" family="Pacifico" pointSize="31"/>
                                 <state key="normal" title="Friends">
@@ -525,7 +528,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.99215686270000003" green="0.59215686270000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Main Menu" id="NyE-ku-LQ2"/>
+                    <navigationItem key="navigationItem" title="Main Menu" id="NyE-ku-LQ2">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="dYn-LZ-Yzd">
+                            <connections>
+                                <action selector="logoutClicked:" destination="CkS-1L-NYm" id="fZU-tB-DS8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="logoView" destination="TbC-c1-Epo" id="NnS-1Q-5OY"/>

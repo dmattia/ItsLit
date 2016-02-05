@@ -12,7 +12,7 @@ import Parse
 import ParseUI
 import MapKit
 
-class ViewController: UIViewController, PFLogInViewControllerDelegate, MKMapViewDelegate {
+class ViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet var mapView: MKMapView!
     var clickedTitle: String?
@@ -20,40 +20,7 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, MKMapView
     var newEventLocation: CLLocationCoordinate2D?
     var evendIDClicked: String?
     
-    @IBAction func logoutClicked(sender: AnyObject) {
-        print("Logout clicked")
-        PFUser.logOut()
-        self.displayLogIn()
-    }
-    
-    func displayLogIn() {
-        let loginViewController = parseLogInViewController()
-        loginViewController.delegate = self
-
-        loginViewController.fields = [
-            PFLogInFields.UsernameAndPassword,
-            PFLogInFields.LogInButton,
-            PFLogInFields.SignUpButton,
-            PFLogInFields.PasswordForgotten,
-            PFLogInFields.Twitter,
-            PFLogInFields.Facebook
-        ]
-        
-        //loginViewController.logInView?.logo = UIImageView(image: UIImage(named: "IMG_2233.JPG"))
-        
-        self.presentViewController(loginViewController, animated: true, completion: nil)
-    }
-    
-    func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
     override func viewDidAppear(animated: Bool) {
-        dispatch_async(dispatch_get_main_queue(), {
-            if(PFUser.currentUser() == nil) {
-                self.displayLogIn()
-            }
-        })
         // Clear all annotations
         let oldAnnotations = self.mapView.annotations
         self.mapView.removeAnnotations(oldAnnotations)
@@ -73,6 +40,10 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, MKMapView
             }
             self.mapView.addAnnotations(annotations)
         }
+    }
+    
+    @IBAction func backPressed(sender: AnyObject) {
+        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func viewDidLoad() {
