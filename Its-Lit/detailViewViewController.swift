@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class detailViewViewController: UIViewController {
+class detailViewViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var shutdownSwitch: UISwitch!
     @IBOutlet weak var litLabel: UILabel!
@@ -17,11 +17,16 @@ class detailViewViewController: UIViewController {
     @IBOutlet var goingSwitch: UISwitch!
     @IBOutlet var numberGoingLabel: UILabel!
     @IBOutlet var starRatingView: HCSStarRatingView!
+    @IBOutlet weak var goingTableView: UITableView!
     var headerText: String?
     var userCount: Int = 0
+    let names = ["Hagrid", "Ron", "Ginny", "Sibyll", "Dobby"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.goingTableView.dataSource = self
+        self.goingTableView.delegate = self
         
         self.headerLabel.text = headerText
         
@@ -48,6 +53,7 @@ class detailViewViewController: UIViewController {
                     self.shutdownSwitch.setOn(true, animated: true)
                 }
                 self.userCount = usersGoing.count
+                self.goingTableView.reloadData()
                 self.numberGoingLabel.text = "Number Going: \(self.userCount)"
                 if(self.userCount == 0) {
                     self.litLabel.text = "Just getting started"
@@ -62,6 +68,23 @@ class detailViewViewController: UIViewController {
                 print("Event Query failed: \(error)")
             }
         }
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 65
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.userCount
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("goingCell")!
+        
+        cell.imageView!.image = UIImage(named: "\(indexPath.row+1)")
+        cell.textLabel!.text = names[indexPath.row]
+        
+        return cell
     }
     
     @IBAction func saveRatingClicked(sender: AnyObject) {
@@ -169,5 +192,6 @@ class detailViewViewController: UIViewController {
                 }
             }
         }
+        self.goingTableView.reloadData()
     }
 }
