@@ -20,7 +20,7 @@ class detailViewViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var goingTableView: UITableView!
     var headerText: String?
     var userCount: Int = 0
-    let names = ["Hagrid", "Ron", "Ginny", "Sibyll", "Dobby"]
+    let names = ["Rubeus", "Ron", "Ginny", "Dean", "Cho"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
