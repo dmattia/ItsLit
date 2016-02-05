@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F1372F1E1C574400000D2CAB /* termsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1372F1D1C574400000D2CAB /* termsViewController.swift */; };
+		F16C82411C65404600A89668 /* IMG_2233.JPG in Resources */ = {isa = PBXBuildFile; fileRef = F16C82401C65404600A89668 /* IMG_2233.JPG */; };
+		F16C82431C65406D00A89668 /* menuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16C82421C65406D00A89668 /* menuViewController.swift */; };
 		F170AE5E1C58919F0093EC23 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F170AE5D1C58919F0093EC23 /* Pacifico.ttf */; };
 		F170AE601C5895A10093EC23 /* ParseSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F170AE5F1C5895A10093EC23 /* ParseSignUpViewController.swift */; };
 		F184EA661C55752B0038E1FE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F184EA651C55752B0038E1FE /* SettingsViewController.swift */; };
@@ -31,7 +33,6 @@
 		F18851CC1C508A040018590C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F18851CB1C508A040018590C /* libz.tbd */; };
 		F18851CE1C508A0F0018590C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F18851CD1C508A0E0018590C /* libsqlite3.tbd */; };
 		F18851D01C509C170018590C /* addEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18851CF1C509C170018590C /* addEventViewController.swift */; };
-		F18851D21C51285B0018590C /* IMG_2233.JPG in Resources */ = {isa = PBXBuildFile; fileRef = F18851D11C51285B0018590C /* IMG_2233.JPG */; };
 		F1B38E251C530E4A00C7BF3A /* HCSStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B38E241C530E4A00C7BF3A /* HCSStarRatingView.m */; };
 		F1B38E271C532BD500C7BF3A /* UserRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B38E261C532BD500C7BF3A /* UserRating.swift */; };
 		F1B38E2C1C54965E00C7BF3A /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B38E291C54965D00C7BF3A /* ParseFacebookUtilsV4.framework */; };
@@ -39,8 +40,6 @@
 		F1C933C01C53042100DE02F9 /* parseLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C933BF1C53042100DE02F9 /* parseLogInViewController.swift */; };
 		F1C9EA581C5594F10078D9FA /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C9EA571C5594F10078D9FA /* Accounts.framework */; };
 		F1C9EA5A1C5594F60078D9FA /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C9EA591C5594F60078D9FA /* Social.framework */; };
-		F1C9EA5E1C559C450078D9FA /* 2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1C9EA5D1C559C450078D9FA /* 2x.png */; };
-		F1C9EA601C559C5C0078D9FA /* 3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1C9EA5F1C559C5C0078D9FA /* 3x.png */; };
 		F1CE3F231C50675600F7A149 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CE3F221C50675600F7A149 /* AppDelegate.swift */; };
 		F1CE3F251C50675600F7A149 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CE3F241C50675600F7A149 /* ViewController.swift */; };
 		F1CE3F281C50675600F7A149 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1CE3F261C50675600F7A149 /* Main.storyboard */; };
@@ -70,6 +69,8 @@
 
 /* Begin PBXFileReference section */
 		F1372F1D1C574400000D2CAB /* termsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = termsViewController.swift; sourceTree = "<group>"; };
+		F16C82401C65404600A89668 /* IMG_2233.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2233.JPG; sourceTree = "<group>"; };
+		F16C82421C65406D00A89668 /* menuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuViewController.swift; sourceTree = "<group>"; };
 		F170AE5D1C58919F0093EC23 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
 		F170AE5F1C5895A10093EC23 /* ParseSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseSignUpViewController.swift; path = ../ParseSignUpViewController.swift; sourceTree = "<group>"; };
 		F184EA651C55752B0038E1FE /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ../SettingsViewController.swift; sourceTree = "<group>"; };
@@ -93,7 +94,6 @@
 		F18851CB1C508A040018590C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		F18851CD1C508A0E0018590C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		F18851CF1C509C170018590C /* addEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addEventViewController.swift; sourceTree = "<group>"; };
-		F18851D11C51285B0018590C /* IMG_2233.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2233.JPG; sourceTree = "<group>"; };
 		F1B38E241C530E4A00C7BF3A /* HCSStarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSStarRatingView.m; sourceTree = "<group>"; };
 		F1B38E261C532BD500C7BF3A /* UserRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRating.swift; sourceTree = "<group>"; };
 		F1B38E291C54965D00C7BF3A /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
@@ -103,8 +103,6 @@
 		F1C933C21C530D5400DE02F9 /* Its-Lit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Its-Lit-Bridging-Header.h"; sourceTree = "<group>"; };
 		F1C9EA571C5594F10078D9FA /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		F1C9EA591C5594F60078D9FA /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		F1C9EA5D1C559C450078D9FA /* 2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2x.png; sourceTree = "<group>"; };
-		F1C9EA5F1C559C5C0078D9FA /* 3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3x.png; sourceTree = "<group>"; };
 		F1CE3F1F1C50675600F7A149 /* Its-Lit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Its-Lit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1CE3F221C50675600F7A149 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1CE3F241C50675600F7A149 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +165,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F16C823E1C653CDA00A89668 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F16C82421C65406D00A89668 /* menuViewController.swift */,
+				F16C823F1C653CF600A89668 /* Parse */,
+				F184EA651C55752B0038E1FE /* SettingsViewController.swift */,
+				F18851B31C507A520018590C /* detailViewViewController.swift */,
+				F18851CF1C509C170018590C /* addEventViewController.swift */,
+				F1CE3F241C50675600F7A149 /* ViewController.swift */,
+				F1372F1D1C574400000D2CAB /* termsViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		F16C823F1C653CF600A89668 /* Parse */ = {
+			isa = PBXGroup;
+			children = (
+				F1C933BF1C53042100DE02F9 /* parseLogInViewController.swift */,
+				F170AE5F1C5895A10093EC23 /* ParseSignUpViewController.swift */,
+			);
+			name = Parse;
+			sourceTree = "<group>";
+		};
 		F1CE3F161C50675600F7A149 = {
 			isa = PBXGroup;
 			children = (
@@ -212,17 +233,9 @@
 			isa = PBXGroup;
 			children = (
 				F170AE5D1C58919F0093EC23 /* Pacifico.ttf */,
-				F1C9EA5D1C559C450078D9FA /* 2x.png */,
-				F1C9EA5F1C559C5C0078D9FA /* 3x.png */,
-				F18851D11C51285B0018590C /* IMG_2233.JPG */,
+				F16C82401C65404600A89668 /* IMG_2233.JPG */,
+				F16C823E1C653CDA00A89668 /* View Controllers */,
 				F1CE3F221C50675600F7A149 /* AppDelegate.swift */,
-				F1CE3F241C50675600F7A149 /* ViewController.swift */,
-				F184EA651C55752B0038E1FE /* SettingsViewController.swift */,
-				F18851B31C507A520018590C /* detailViewViewController.swift */,
-				F18851CF1C509C170018590C /* addEventViewController.swift */,
-				F1C933BF1C53042100DE02F9 /* parseLogInViewController.swift */,
-				F170AE5F1C5895A10093EC23 /* ParseSignUpViewController.swift */,
-				F1372F1D1C574400000D2CAB /* termsViewController.swift */,
 				F1B38E261C532BD500C7BF3A /* UserRating.swift */,
 				F18851B11C5070000018590C /* VCMapView.swift */,
 				F18851AF1C506E090018590C /* Artwork.swift */,
@@ -365,11 +378,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1CE3F2D1C50675600F7A149 /* LaunchScreen.storyboard in Resources */,
-				F18851D21C51285B0018590C /* IMG_2233.JPG in Resources */,
-				F1C9EA5E1C559C450078D9FA /* 2x.png in Resources */,
 				F1CE3F2A1C50675600F7A149 /* Assets.xcassets in Resources */,
+				F16C82411C65404600A89668 /* IMG_2233.JPG in Resources */,
 				F170AE5E1C58919F0093EC23 /* Pacifico.ttf in Resources */,
-				F1C9EA601C559C5C0078D9FA /* 3x.png in Resources */,
 				F1CE3F281C50675600F7A149 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,6 +418,7 @@
 				F1B38E271C532BD500C7BF3A /* UserRating.swift in Sources */,
 				F1B38E251C530E4A00C7BF3A /* HCSStarRatingView.m in Sources */,
 				F18851D01C509C170018590C /* addEventViewController.swift in Sources */,
+				F16C82431C65406D00A89668 /* menuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

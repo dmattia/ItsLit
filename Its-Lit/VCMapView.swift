@@ -62,9 +62,9 @@ extension ViewController {
                         let going = event?.objectForKey("UsersGoing")?.count
                         if(going == 0) {
                             view.pinTintColor = UIColor.redColor()
-                        } else if (going < 3) {
+                        } else if (going < 2) {
                             view.pinTintColor = UIColor.yellowColor()
-                        } else if (going < 8){
+                        } else if (going < 3){
                             view.pinTintColor = UIColor.orangeColor()
                         } else {
                             view.pinTintColor = UIColor.blueColor()

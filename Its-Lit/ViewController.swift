@@ -5,6 +5,7 @@
 //  Created by David Mattia on 1/20/16.
 //  Copyright © 2016 David Mattia. All rights reserved.
 //
+//  View Controller with Map
 
 import UIKit
 import Parse
@@ -26,7 +27,6 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, MKMapView
     }
     
     func displayLogIn() {
-        //let loginViewController = PFLogInViewController()
         let loginViewController = parseLogInViewController()
         loginViewController.delegate = self
 
