@@ -17,27 +17,47 @@ class addEventViewController: UIViewController, UIPickerViewDataSource, UIPicker
     let pickerData = ["Dorm", "House", "Other"]
     var eventLocation: CLLocationCoordinate2D?
     
+    func eventWithNameExists(name: String) -> Bool {
+        let query = PFQuery(className: "Event")
+        query.whereKey("Title", equalTo: name)
+        var error : NSError?
+        let count = query.countObjects(&error)
+        return count > 0
+    }
+    
     @IBAction func saveEventButtonClicked(sender: AnyObject) {
-        print("Saving Event...")
-        let newEvent = PFObject(className: "Event")
-        newEvent["Title"] = self.eventTitleTextField.text
-        newEvent["type"] = self.typeTextField.text
-        newEvent["location"] = PFGeoPoint(latitude: self.eventLocation!.latitude,
-            longitude: self.eventLocation!.longitude)
-        newEvent["UsersGoing"] = [PFUser.currentUser()!]
-        newEvent["shutdown"] = false
-        let dict = Dictionary<String, CGFloat>()
-        var array = [Dictionary<String, CGFloat>]()
-        array.append(dict)
-        newEvent["ratings"] = array
-        
-        newEvent.saveInBackgroundWithBlock { (saved: Bool, error: NSError?) -> Void in
-            if(saved) {
-                print("Saved Event")
-                self.navigationController?.popViewControllerAnimated(true)
-            } else {
-                print("Error Saving: \(error)")
+        if !eventWithNameExists(self.eventTitleTextField.text!) {
+            print("Saving Event...")
+            let newEvent = PFObject(className: "Event")
+            newEvent["Title"] = self.eventTitleTextField.text
+            newEvent["type"] = self.typeTextField.text
+            newEvent["location"] = PFGeoPoint(latitude: self.eventLocation!.latitude,
+                longitude: self.eventLocation!.longitude)
+            newEvent["UsersGoing"] = [PFUser.currentUser()!]
+            newEvent["shutdown"] = false
+            let dict = Dictionary<String, CGFloat>()
+            var array = [Dictionary<String, CGFloat>]()
+            array.append(dict)
+            newEvent["ratings"] = array
+            
+            newEvent.saveInBackgroundWithBlock { (saved: Bool, error: NSError?) -> Void in
+                if(saved) {
+                    print("Saved Event")
+                    self.navigationController?.popViewControllerAnimated(true)
+                } else {
+                    print("Error Saving: \(error)")
+                }
             }
+        } else {
+            let alert = UIAlertController(title: "Error Saving",
+                message: "A party with this name already exists. Try another.",
+                preferredStyle: UIAlertControllerStyle.Alert)
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) {
+                UIAlertAction in
+                print("OK Pressed")
+            }
+            alert.addAction(okAction)
+            self.presentViewController(alert, animated: true, completion: nil)
         }
     }
     

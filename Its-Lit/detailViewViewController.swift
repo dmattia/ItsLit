@@ -59,7 +59,7 @@ class detailViewViewController: UIViewController {
                     self.litLabel.text = "It's Lit!"
                 }
             } else {
-                print("Query failed: \(error)")
+                print("Event Query failed: \(error)")
             }
         }
     }
@@ -92,7 +92,7 @@ class detailViewViewController: UIViewController {
                 })
                 
             } else {
-                print("Query failed: \(error)")
+                print("Save Rating Query failed: \(error)")
             }
         }
     }
@@ -107,7 +107,7 @@ class detailViewViewController: UIViewController {
                 event["shutdown"] = self.shutdownSwitch.on
                 event.saveInBackground()
             } else {
-                print("Query failed: \(error)")
+                print("Shutdown Switch Query failed: \(error)")
             }
         }
     }
@@ -139,7 +139,7 @@ class detailViewViewController: UIViewController {
                         event.saveInBackground()
                     }
                 } else {
-                    print("Query failed: \(error)")
+                    print("Going Switch Toggled Query failed: \(error)")
                 }
             }
 
@@ -165,7 +165,7 @@ class detailViewViewController: UIViewController {
                     event.setObject(updated, forKey: "UsersGoing")
                     event.saveInBackground()
                 } else {
-                    print("Query failed: \(error)")
+                    print("Setting not going Query failed: \(error)")
                 }
             }
         }
